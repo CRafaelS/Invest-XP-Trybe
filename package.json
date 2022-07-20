@@ -1,0 +1,19 @@
+{
+  "name": "invest-xp-trybe",
+  "version": "1.0.0",
+  "description": "Desafio XP-trybe",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CRafaelS/Invest-XP-Trybe.git"
+  },
+  "author": "Carlos Rafael",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CRafaelS/Invest-XP-Trybe/issues"
+  },
+  "homepage": "https://github.com/CRafaelS/Invest-XP-Trybe#readme"
+}
