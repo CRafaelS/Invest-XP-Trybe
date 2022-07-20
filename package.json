@@ -4,7 +4,9 @@
   "description": "Desafio XP-trybe",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "mocha tests",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
