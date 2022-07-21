@@ -1,14 +1,14 @@
 const assetsModels = require('../models/assetsModels');
 
 const buyAssets = async(codClient, codAtivo, qteAtivo) => {
-  const avalibleAssets = await assetsModels.quantityAsset(codAtivo);
+  const [avalibleAssets] = await assetsModels.quantityAsset(codAtivo);
 
-  if (avalibleAssets < qteAtivo) return false;
+  if (avalibleAssets.qtdeAtivo < qteAtivo) return false;
 
   await assetsModels.assetClient(codClient, codAtivo, qteAtivo);
 
-  const newQuantity = avalibleAssets - qteAtivo;
-  await assetsModels.quantityAsset(newQuantity);
+  const newQuantity = avalibleAssets.qtdeAtivo - qteAtivo;
+  await assetsModels.newQuantityAsset(newQuantity, codAtivo);
 
   return {codClient, codAtivo, qteAtivo}
 }

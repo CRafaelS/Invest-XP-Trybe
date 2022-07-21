@@ -9,7 +9,7 @@ const quantityAsset = async (codAtivo) => {
 
 const  assetClient = async (codClient, codAtivo, qteAtivo) => {
   await connections.execute(
-    `INSERT INTO Invest_XP_Trybe.ClientAssets (codCliente, codAtivo, qtdeAtivo)
+    `INSERT INTO Invest_XP_Trybe.ClientAssets (codCliente, codAtivo, qtdeAtivo) 
       VALUES (?,?,?);`, [codClient, codAtivo, qteAtivo],
   );
 }
