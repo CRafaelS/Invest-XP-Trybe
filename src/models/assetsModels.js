@@ -8,10 +8,17 @@ const quantityAsset = async (codAtivo) => {
 }
 
 const  assetClient = async (codClient, codAtivo, qteAtivo) => {
-  const [productsModels] = await connections.execute(
+  await connections.execute(
     `INSERT INTO Invest_XP_Trybe.ClientAssets (codCliente, codAtivo, qtdeAtivo)
       VALUES (?,?,?);`, [codClient, codAtivo, qteAtivo],
   );
 }
 
-module.exports = { quantityAsset, assetClient };
+const newQuantityAsset = async (newQuantity, codAtivo) => {
+  await connections.execute(
+    'UPDATE Invest_XP_Trybe.Assets SET qtdeAtivo = ? WHERE codAtivo=?;',
+      [newQuantity, codAtivo],
+  );
+}
+
+module.exports = { quantityAsset, assetClient, newQuantityAsset };
