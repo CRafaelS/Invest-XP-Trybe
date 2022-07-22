@@ -3,6 +3,7 @@ const assetsController = require('../controller/assetsController')
 
 const assets = express.Router();
 
-assets.get('/client/:codClient', assetsController.getClientAssets);
+assets.get('/:codClient', assetsController.getClientAssets);
+assets.get('/', assetsController.getAsset);
 
 module.exports = assets;

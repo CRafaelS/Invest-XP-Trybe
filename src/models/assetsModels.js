@@ -9,6 +9,14 @@ const getClientAssets = async (codCliente) => {
   return clientAsset
 }
 
+const getAsset = async () => {
+  const [selectAsset] = await connections.execute(
+    'SELECT codAtivo, qtdeAtivo, price FROM Invest_XP_Trybe.Assets;'
+  );
+  return selectAsset
+}
+
 module.exports = { 
   getClientAssets,
+  getAsset,
 };

@@ -10,4 +10,13 @@ const getClientAssets = async(codCliente) => {
   }));
 }
 
-module.exports = { getClientAssets }
+const getAsset = async() => {
+  const getAsset = await assetsServices.getAsset();
+  return getAsset.map((data) => ({
+    CodAtivo: data.codAtivo,
+    QtdeAtivo: data.qtdeAtivo,
+    Valor: data.price,
+  }));
+}
+
+module.exports = { getClientAssets, getAsset }
