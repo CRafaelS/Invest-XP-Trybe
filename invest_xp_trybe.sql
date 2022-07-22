@@ -34,13 +34,13 @@ INSERT INTO Account(balance, codCliente)
 -- Table Assets
 -- -----------------------------------------------------
 CREATE TABLE Assets (
-  codAtivo INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  assetCod  VARCHAR(45) NOT NULL UNIQUE,
+  idAtivo INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  codAtivo  VARCHAR(45) NOT NULL UNIQUE,
   qtdeAtivo INT ,
   price DECIMAL(10,2)
   );
 
-INSERT INTO Assets(assetCod, qtdeAtivo, price) 
+INSERT INTO Assets(codAtivo, qtdeAtivo, price) 
   VALUES ('XPBR31', 8000, 100.51),
   ('ITUB4', 7000, 23.72),
   ('WEGE3', 6500, 25.99),
@@ -58,12 +58,12 @@ INSERT INTO Assets(assetCod, qtdeAtivo, price)
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS ClientAssets (
   codCliente INT NOT NULL,
-  codAtivo INT NOT NULL,
+  idAtivo INT NOT NULL,
   qtdeAtivo INT,
-  CONSTRAINT PRIMARY KEY (codCliente, codAtivo),
+  CONSTRAINT PRIMARY KEY (codCliente, idAtivo),
   FOREIGN KEY (codCliente) REFERENCES Client(codCliente),
-  FOREIGN KEY (codAtivo) REFERENCES Assets(codAtivo)
+  FOREIGN KEY (idAtivo) REFERENCES Assets(idAtivo)
   );
 
-  INSERT INTO ClientAssets(codCliente, codAtivo, qtdeAtivo) 
+  INSERT INTO ClientAssets(codCliente, idAtivo, qtdeAtivo) 
     VALUES (1, 1, 500);
