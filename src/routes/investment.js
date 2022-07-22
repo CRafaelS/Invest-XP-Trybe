@@ -1,9 +1,9 @@
 const express = require('express');
-const assetsController = require('../controller/assetsController')
+const investmentsController = require('../controller/investmentsController')
 
 const investment = express.Router();
 
-investment.post('/comprar', assetsController.buyAssets);
-investment.post('/vender', assetsController.sellAssets);
+investment.post('/comprar', investmentsController.buyAssets);
+investment.post('/vender', investmentsController.sellAssets);
 
 module.exports = investment;
