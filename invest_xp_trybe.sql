@@ -41,11 +41,17 @@ CREATE TABLE Assets (
   );
 
 INSERT INTO Assets(assetCod, qtdeAtivo, price) 
-  VALUES ('XPBR31', 750000, 100.51),
-  ('ITUB4', 700000, 23.72),
-  ('WEGE3', 650000, 25.99),
-  ('VALE3', 600000, 67.39),
-  ('PETR4', 500000, 29.17);
+  VALUES ('XPBR31', 8000, 100.51),
+  ('ITUB4', 7000, 23.72),
+  ('WEGE3', 6500, 25.99),
+  ('VALE3', 6800, 67.39),
+  ('BBAS3', 6300, 32.73),
+  ('RENT3', 4000, 73.00),
+  ('TEND3', 4500, 28.00),
+  ('ASAI3', 5500, 20.00),
+  ('KLBN11', 5800, 31.20),
+  ('SUZB3', 5800, 46.49),
+  ('PETR4', 5000, 29.17);
 
 -- -----------------------------------------------------
 -- Table ClientAssets
@@ -60,5 +66,4 @@ CREATE TABLE IF NOT EXISTS ClientAssets (
   );
 
   INSERT INTO ClientAssets(codCliente, codAtivo, qtdeAtivo) 
-    VALUES (1, 1, 500),
-    (1,3, 300);
+    VALUES (1, 1, 500);
