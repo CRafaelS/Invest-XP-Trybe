@@ -16,9 +16,30 @@ const  assetClient = async (codClient, codAtivo, qteAtivo) => {
 
 const newQuantityAsset = async (newQuantity, codAtivo) => {
   await connections.execute(
-    'UPDATE Invest_XP_Trybe.Assets SET qtdeAtivo = ? WHERE codAtivo=?;',
+    'UPDATE Invest_XP_Trybe.Assets SET qtdeAtivo = ? WHERE codAtivo = ?;',
       [newQuantity, codAtivo],
   );
 }
 
-module.exports = { quantityAsset, assetClient, newQuantityAsset };
+const getInvestAsset = async (codCliente, codAtivo) => {
+  const [isInvestment] = await connections.execute(
+    `SELECT qtdeAtivo FROM Invest_XP_Trybe.ClientAssets
+      WHERE codCliente = ? AND codAtivo = ?;`, [codCliente, codAtivo],
+  );
+  return isInvestment
+}
+
+const newQuantityInvestment = async (newQuantity, codAtivo) => {
+  await connections.execute(
+    'UPDATE Invest_XP_Trybe.ClientAssets SET qtdeAtivo = ? WHERE codAtivo = ?;',
+      [newQuantity, codAtivo],
+  );
+}
+
+module.exports = { 
+  quantityAsset,
+  assetClient,
+  newQuantityAsset,
+  getInvestAsset,
+  newQuantityInvestment
+};
