@@ -1,8 +1,8 @@
 const assetsSevices = require('../services/assetsServices')
 
 const getClientAssets = async(req, res) => {
-  const { codClient } = req.params;
-  const clientAssets = await assetsSevices.getClientAssets(codClient);
+  const { CodCliente } = req.params;
+  const clientAssets = await assetsSevices.getClientAssets(CodCliente);
   res.status(201).json(clientAssets);
 }
 
