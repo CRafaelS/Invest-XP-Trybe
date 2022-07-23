@@ -9,7 +9,7 @@ const getClientAssets = async(req, res) => {
 const getAsset = async(req, res) => {
   const { at } = req.query;
   const findAssets = await assetsSevices.getAsset();
-  const [asset] = findAssets.filter((ativo) => ativo.CodAtivo.includes(at.toUpperCase()));
+  const asset = findAssets.filter((ativo) => ativo.CodAtivo.includes(at.toUpperCase()));
   
   res.status(201).json(asset);
 
