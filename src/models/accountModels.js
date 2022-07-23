@@ -15,4 +15,12 @@ const depositOrDraft = async (CodCliente, Valor) => {
   );
 };
 
-module.exports = { balanceBank, depositOrDraft }
+const bankStatement = async (CodCliente) => {
+  const [clientBankStatement] = await connections.execute(
+    `SELECT codCliente, balance, dateMov FROM Invest_XP_Trybe.Account
+    WHERE codCliente = ? ORDER BY idAccount DESC;`, [CodCliente],
+  );
+  return clientBankStatement;
+};
+
+module.exports = { balanceBank, depositOrDraft, bankStatement }
