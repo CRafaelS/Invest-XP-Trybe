@@ -9,4 +9,15 @@ const validateClient = async(req, res, next) => {
   next();
 }
 
-module.exports = { validateClient }
+const validateValor = async(req, res, next) => {
+  const { Valor } = req.body;
+  if(Valor === undefined) {
+    return res.status(400).json({ message: '"Valor" is required' });
+  };
+  if(typeof Valor !== 'number') return res.status(400).json({
+    message: '"Valor" must be a number'
+  });
+  next();
+}
+
+module.exports = { validateClient, validateValor }

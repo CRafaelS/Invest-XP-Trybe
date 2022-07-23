@@ -13,7 +13,7 @@ const getAsset = async(req, res) => {
   const { at } = req.query;
   const findAssets = await assetsSevices.getAsset();
   const asset = findAssets.filter((ativo) => ativo.CodAtivo.includes(at.toUpperCase()));
-  
+  if(asset[0] === undefined) return res.status(400).json({ message: 'unregistered Assets' });
   return res.status(201).json(asset);
 
 }
