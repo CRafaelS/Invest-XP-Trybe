@@ -21,6 +21,9 @@ const newDraft = async(req, res) => {
 const bankStatement = async(req, res) => {
   const { CodCliente } = req.params;
   const clientBankStatement = await accountServices.bankStatement(CodCliente);
+  if(clientBankStatement[0] === undefined)  return res.status(400).json({
+    message: 'unregistered customer'
+  });
   return res.status(200).json(clientBankStatement);
 }
 

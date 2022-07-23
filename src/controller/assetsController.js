@@ -3,7 +3,10 @@ const assetsSevices = require('../services/assetsServices')
 const getClientAssets = async(req, res) => {
   const { CodCliente } = req.params;
   const clientAssets = await assetsSevices.getClientAssets(CodCliente);
-  res.status(201).json(clientAssets);
+  if(clientAssets[0] === undefined)  return res.status(400).json({
+    message: 'unregistered customer'
+  });
+  return res.status(201).json(clientAssets);
 }
 
 const getAsset = async(req, res) => {
@@ -11,7 +14,7 @@ const getAsset = async(req, res) => {
   const findAssets = await assetsSevices.getAsset();
   const asset = findAssets.filter((ativo) => ativo.CodAtivo.includes(at.toUpperCase()));
   
-  res.status(201).json(asset);
+  return res.status(201).json(asset);
 
 }
 
