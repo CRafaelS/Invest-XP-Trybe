@@ -7,7 +7,7 @@ const quantityAsset = async (codAtivo) => {
   return quantity
 }
 
-const  assetClient = async (codClient, idAtivo, qteAtivo) => {
+const assetClient = async (codClient, idAtivo, qteAtivo) => {
   await connections.execute(
     `INSERT INTO Invest_XP_Trybe.ClientAssets (codCliente, idAtivo, qtdeAtivo) 
       VALUES (?,?,?);`, [codClient, idAtivo, qteAtivo],
