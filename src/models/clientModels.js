@@ -1,11 +1,18 @@
 const connections = require('./connections');
 
 const createClient = async (name, email, password) => {
-  await connections.execute(
+  const [clientAccount] = await connections.execute(
     `INSERT INTO Invest_XP_Trybe.Client (name,email,password) VALUES(?, ?, ?);`, 
     [name, email, password],
   );
-  return { name, email}
+  return { name, email, codCliente: clientAccount.insertId}
 };
 
-module.exports = { createClient }
+const openAccount = async (codCliente) => {
+  await connections.execute(
+    `INSERT INTO Invest_XP_Trybe.Account (balance, codCliente) VALUES(0, ?);`, 
+    [codCliente],
+  );
+};
+
+module.exports = { createClient, openAccount }
