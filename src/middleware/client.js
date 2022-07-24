@@ -5,7 +5,7 @@ const validateClient = async(req, res, next) => {
     return res.status(400).json({ message: '"CodCliente" is required' });
   };
   const [validClient] = await validate.getClient(CodCliente);
-  if(validClient === undefined) return res.status(400).json({ message: 'unregistered customer' });
+  if(validClient === undefined) return res.status(404).json({ message: 'unregistered customer' });
   next();
 }
 

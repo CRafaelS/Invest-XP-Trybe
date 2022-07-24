@@ -6,7 +6,7 @@ const newDeposit = async(req, res) => {
   if(!deposit) return res.status(422).json({
     message: '"Valor" must be greater than 0',
   });
-  return res.status(200).json(deposit);
+  return res.status(201).json(deposit);
 }
 
 const newDraft = async(req, res) => {
@@ -15,13 +15,13 @@ const newDraft = async(req, res) => {
   if(!draft) return res.status(422).json({
     message: '"Valor" must be greater than 0 or your balance is insufficient',
   });
-  return res.status(200).json(draft);
+  return res.status(201).json(draft);
 }
 
 const bankStatement = async(req, res) => {
   const { CodCliente } = req.params;
   const clientBankStatement = await accountServices.bankStatement(CodCliente);
-  if(clientBankStatement[0] === undefined)  return res.status(400).json({
+  if(clientBankStatement[0] === undefined)  return res.status(404).json({
     message: 'unregistered customer'
   });
   return res.status(200).json(clientBankStatement);

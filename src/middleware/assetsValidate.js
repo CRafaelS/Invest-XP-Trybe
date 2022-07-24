@@ -6,7 +6,7 @@ const validateAsset = async(req, res, next) => {
     return res.status(400).json({ message: '"codAtivo" is required' });
   };
   const [validClient] = await validate.quantityAsset(codAtivo);
-  if(validClient === undefined) return res.status(400).json({ message: 'unregistered Assets' });
+  if(validClient === undefined) return res.status(404).json({ message: 'unregistered Assets' });
   if(qteAtivo === undefined) {
     return res.status(400).json({ message: '"qteAtivo" is required' });
   };
