@@ -7,4 +7,11 @@ const getClient = async (CodCliente) => {
   return findClient
 }
 
-module.exports = { getClient }
+const getEmail = async (email) => {
+  const [findEmail] = await connections.execute(
+    'SELECT email FROM Invest_XP_Trybe.Client WHERE email=?;', [email]
+  );
+  return findEmail
+}
+
+module.exports = { getClient, getEmail }

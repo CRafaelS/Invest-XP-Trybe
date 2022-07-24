@@ -20,4 +20,25 @@ const validateValor = async(req, res, next) => {
   next();
 }
 
-module.exports = { validateClient, validateValor }
+const validateEmail = async(req, res, next) => {
+  const validEmail = /\S+@\S+\.\S+/;
+  const { email } = req.body;
+  
+  if (!email || email === '') {
+    return res.status(400).json({ message: 'Some required fields are missing' });
+  }
+  
+  if (!validEmail.test(email)) { 
+    return res.status(400).json({ message: '"email" must be a valid email' }); 
+  }
+
+  const [findEmail] = await validate.getEmail(email);
+  if (findEmail) {
+    return res.status(409).json({
+      message:'email is already registered, choose another email'
+    });
+  }
+  next();
+};
+
+module.exports = { validateClient, validateValor, validateEmail }

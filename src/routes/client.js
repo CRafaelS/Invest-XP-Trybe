@@ -1,8 +1,9 @@
 const express = require('express');
-const clientController = require('../controller/clientController')
+const clientController = require('../controller/clientController');
+const { validateEmail } = require('../middleware/client');
 
 const client = express.Router();
 
-client.post('/', clientController.newClient);
+client.post('/',validateEmail, clientController.newClient);
 
 module.exports = client;
