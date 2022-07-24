@@ -65,8 +65,8 @@ Aqui você vai encontrar uma breve expicação de como foi estruturado a API ao 
   {"message": "quantity is not available"}
   ```
 
-    ---
-    ## A segunda requisição proposta foi um POST na rota `/investimentos/vender`
+  ---
+  ## A segunda requisição proposta foi um POST na rota `/investimentos/vender`
   
   > No postman ou onde for testar utilize a rota `http://localhost:3000/investimentos/vender`.
   - Passe para o corpo da requisição o seguinte objeto.
@@ -113,5 +113,61 @@ Aqui você vai encontrar uma breve expicação de como foi estruturado a API ao 
   ```
 
   ---
+
+   ## A quinta requisição proposta foi um POST na rota `/conta/deposito`
+  
+  > No postman ou onde for testar utilize a rota `http://localhost:3000/conta/deposito`.
+  - Passe para o corpo da requisição o seguinte objeto.
+    ```json
+    {
+      "CodCliente": 1,
+      "Valor": 300
+    }
+    ```
+  conforme o print abaixo do postman.
+
+  <img src="img/POST_Deposito.png" width="800px" >
+
+  Se o `Valor` for negativou ou igual a zero é esperado a seguinte menssagem:
+  ```json
+  {"message": "\"Valor\" must be greater than 0"}
+  ```
+
+  Se o `CodCliente` for um id que não cadastro no BD é esperado a seguinte menssagem:
+  ```json
+  {"message": "unregistered customer"}
+  ```
+  ---
+
+   ## A sexta requisição proposta foi um POST na rota `/conta/saque`
+  
+  > No postman ou onde for testar utilize a rota `http://localhost:3000/conta/saque`.
+  - Passe para o corpo da requisição o seguinte objeto.
+    ```json
+    {
+      "CodCliente": 1,
+      "Valor": 300
+    }
+    ```
+  conforme o print abaixo do postman.
+
+  <img src="img/POST_Saque.png" width="800px" >
+
+  Se o `Valor` for maior que o saldo ou negativou ou igual a zero é esperado a seguinte menssagem:
+  ```json
+  {"message": "\"Valor\" must be greater than 0 or your balance is insufficient"}
+  ```
+  ---
+
+  ## A sétima requisição proposta foi um GET na rota `/conta/{cod-cliente}`
+  
+  > No postman ou onde for testar utilize a rota `http://localhost:3000/conta/{CodCliente}`, passe o `id` do cliente em  `{CodCliente}` para acessar todas as movimentações do cliente, lembrando que é apresentado um array com todas as movimentações do cliente e que o primeiro objeto é da última movimentação e com o saldo atualizado, veja o exemplo no print abaixo, onde o cliente tinha um saldo de R$850,00 e depositou R$150,00.
+
+  <img src="img/GET_Extrato.png" width="800px" >
+
+  E se o `id` passado não for  de um cliente esperado a seguinte menssagem:
+  ```json
+  {"message": "unregistered customer"}
+  ```
   <br/>
 </details>
