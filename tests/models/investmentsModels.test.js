@@ -1,7 +1,7 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
 const connection = require('../../src/models/connections');
-const assetsModels = require('../../src/models/assetsModels');
+const investmentsModels = require('../../src/models/investmentsModels');
 
 describe('Verifica a função quantityAsset da Models', () => {
   beforeEach(() => {
@@ -14,22 +14,22 @@ describe('Verifica a função quantityAsset da Models', () => {
   })
 
   it('verifica se o retorno é um array', async () => {
-    const responseBD = await assetsModels.quantityAsset();
+    const responseBD = await investmentsModels.quantityAsset();
     expect(responseBD).to.be.a('array');
   })
 
   it('o array não esta vazio', async () => {
-    const responseBD = await assetsModels.quantityAsset();
+    const responseBD = await investmentsModels.quantityAsset();
     expect(responseBD).to.be.not.empty;
   })
 
   it('é um array de objeto', async () => {
-    const [response] = await assetsModels.quantityAsset();
+    const [response] = await investmentsModels.quantityAsset();
     expect(response).to.deep.a('object');
   })
 
   it('Verifica se o objeto possui a chave: "qtdeAtivo"', async () => {
-    const [response] = await assetsModels.quantityAsset();
+    const [response] = await investmentsModels.quantityAsset();
 
     expect(response).to.include.all.keys('qtdeAtivo');
   });
@@ -46,22 +46,22 @@ describe('Verifica a função getInvestAsset da Models sé já existe o investim
   })
 
   it('verifica se o retorno é um array', async () => {
-    const responseBD = await assetsModels.getInvestAsset();
+    const responseBD = await investmentsModels.getInvestAsset();
     expect(responseBD).to.be.a('array');
   })
 
   it('o array não esta vazio', async () => {
-    const responseBD = await assetsModels.getInvestAsset();
+    const responseBD = await investmentsModels.getInvestAsset();
     expect(responseBD).to.be.not.empty;
   })
 
   it('é um array de objeto', async () => {
-    const [response] = await assetsModels.getInvestAsset();
+    const [response] = await investmentsModels.getInvestAsset();
     expect(response).to.deep.a('object');
   })
 
   it('Verifica se o objeto possui a chave: "qtdeAtivo"', async () => {
-    const [response] = await assetsModels.getInvestAsset();
+    const [response] = await investmentsModels.getInvestAsset();
 
     expect(response).to.include.all.keys('qtdeAtivo');
   });
@@ -78,12 +78,12 @@ describe('Verifica a função getInvestAsset da Models se é um novo investiment
   })
 
   it('verifica se o retorno é um array', async () => {
-    const responseBD = await assetsModels.getInvestAsset();
+    const responseBD = await investmentsModels.getInvestAsset();
     expect(responseBD).to.be.a('array');
   })
 
   it('Se o array esta vazio', async () => {
-    const responseBD = await assetsModels.getInvestAsset();
+    const responseBD = await investmentsModels.getInvestAsset();
     expect(responseBD).to.be.empty;
   })
 });
