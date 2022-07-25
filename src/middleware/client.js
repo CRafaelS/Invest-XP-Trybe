@@ -41,4 +41,20 @@ const validateEmail = async(req, res, next) => {
   next();
 };
 
-module.exports = { validateClient, validateValor, validateEmail }
+const validateName = async(req, res, next) => {
+  const { name } = req.body;
+  if(name === undefined) {
+    return res.status(400).json({ message: '"name" is required' });
+  };
+  next();
+}
+
+const validatePassword = async(req, res, next) => {
+  const { password } = req.body;
+  if(password === undefined) {
+    return res.status(400).json({ message: '"password" is required' });
+  };
+  next();
+}
+
+module.exports = { validateClient, validateValor, validateEmail, validateName,validatePassword }
