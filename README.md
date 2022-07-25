@@ -169,5 +169,37 @@ Aqui você vai encontrar uma breve expicação de como foi estruturado a API ao 
   ```json
   {"message": "unregistered customer"}
   ```
+
+  ---
+
+  ## Rota extra para cadastrar um novo cliente - POST
+  
+  > No postman ou onde for testar utilize a rota `http://localhost:3000/cliente`.
+  - Passe para o corpo da requisição o seguinte objeto.
+    ```json
+    {
+      "name": "Nome do cliente",
+      "email": "novo@email.com",
+      "password": "senha"
+    }
+    ```
+  conforme o print abaixo do postman.
+
+  <img src="img/POST_NewClient.png" width="800px" >
+
+  - Apesar do retorno de sucesso ser um token JWT, não fiz as validações para ele.
+  
+  - Se não for passado o  `name` é esperado a seguinte mensagem:
+  ```json
+  {"message": "\"name\" is required"}
+  ```
+  - Se o `email` já existir é esperado a seguinte mensagem:
+  ```json
+  {"message": "email is already registered, choose another email"}
+  ```
+  - Se não for passado o `password` é esperado a seguinte mensagem:
+  ```json
+  {"message": "\"password\" is required"}
+  ```
   <br/>
 </details>
