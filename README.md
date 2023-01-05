@@ -1,15 +1,13 @@
-# Boas-vindas ao desafio técnico da XP para alunos da Trybe!
+# Boas-vindas ao Mercado de Ação!
 
-Aqui você vai encontrar uma breve expicação de como foi estruturado a API ao receber o desafio e como executa-lo para fazer os testes.
+Aqui você vai encontrar uma breve expicação de como foi estruturado a API.
 
 # Iniciando o projeto
 
 <details>
-  <summary><strong>🤷🏽‍♀️ Como iniciei o desafio técnico</strong></summary><br />
-
-  <p>Com o desafio técnico em mãos iniciei um novo projeto no GitHub e fiz o clone para minha maquina.</p>
-  Após instalar as bibliotecas que achei necessário para iniciar o projeto, decidi colocar somente a pasta node_modules no .gitignore e deixar o .env público para uma melhor avaliação do projeto desenvolvido, também preferi fazer em JavaScript pois é a linguagem de programação que eu tenho maior familiaridade. </p>
-  <p> Com essas escolhas, iniciei modelando o banco de dados a partir do documento do desafio anotando todas as variáveis e pensando no tipo de relacionamento das tabelas, após essa modelagem cheguei no seguinte Diagrama ER</p> 
+  <summary><strong>🤷🏽‍♀️ Como iniciei o projeto</strong></summary><br />
+  
+  <p> Iniciei o projeto modelando o banco de dados a partir do documento do desafio anotando todas as variáveis e pensando no tipo de relacionamento das tabelas, após essa modelagem cheguei no seguinte Diagrama ER</p> 
 
   <img src="img/DER.png" width="800px" >
 
